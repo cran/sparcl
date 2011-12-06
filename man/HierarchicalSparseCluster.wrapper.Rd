@@ -8,9 +8,6 @@ format, and then  automatically chooses the
 optimal tuning parameter value using HierarchicalSparseCluster.permute
 if not specified.
 }
-\details{
-
-}
 \usage{
 HierarchicalSparseCluster.wrapper(file,  method=c("average", "complete", "single", "centroid"),
 wbound=NULL, silent=FALSE, cluster.features=FALSE,

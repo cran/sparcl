@@ -13,7 +13,8 @@ dissimilarity=c("squared.distance", "absolute.value"),standardize.arrays=FALSE)
   \item{nperms}{The number of permutations to perform.}
   \item{wbounds}{The sequence of tuning parameters to consider. The
     tuning parameters are the L1 bound on w, the feature weights. If
-    NULL, then a default sequence will be used.}
+    NULL, then a default sequence will be used. If non-null, should be
+    greater than 1.}
   \item{dissimilarity}{How should dissimilarity be computed? Default is
     squared.distance.}
   \item{standardize.arrays}{Should the arrays first be standardized?

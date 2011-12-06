@@ -2,6 +2,8 @@
 function(x,  nperms=10, wbounds=NULL, dissimilarity=c("squared.distance","absolute.value"), standardize.arrays=FALSE){
   dissimilarity <- match.arg(dissimilarity)
   if(is.null(wbounds)) wbounds <- seq(1.1, sqrt(ncol(x))*.7, len=10)
+  if(min(wbounds)<=1) stop("Cannot have wbounds <= 1")
+  if(length(wbounds)<2) stop("Wbounds should be a vector with at least 2 elements.")
   tots <- rep(NA,length(wbounds))
   permtots <- matrix(NA, nrow=length(wbounds), ncol=nperms)
   nnonzerows <- rep(NA,length(wbounds))

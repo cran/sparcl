@@ -31,7 +31,7 @@ function(x=NULL, dists=NULL, method=c("average", "complete", "single","centroid"
     }
   }
   if(is.null(wbound)) wbound <- .5*sqrt(ncol(dists))
-  if(wbound<1) stop("Cannot have wbound < 1")
+  if(wbound<=1) stop("Cannot have wbound <= 1")
   if (dissimilarity == "squared.distance") out <- GetUW(dists^2, wbound, niter = niter, uorth = uorth, silent = silent)
   if (dissimilarity == "absolute.value")  out <- GetUW(dists, wbound, niter = niter, uorth = uorth, silent = silent)
   out <- list(hc = hclust(as.dist(out$u), method = method), ws = out$w, u = out$u, crit = out$crit, dists = dists, uorth = uorth, wbound = wbound)

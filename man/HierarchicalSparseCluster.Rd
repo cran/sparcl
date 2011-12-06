@@ -50,7 +50,7 @@ outputfile.prefix="output",genenames=NULL,genedesc=NULL,standardize.arrays=FALSE
   \item{method}{The type of linkage to use in the hierarchical
     clustering - "single", "complete", "centroid", or "average".}
   \item{wbound}{The L1 bound on w to use; this is the tuning parameter
-    for sparse hierarchical clustering.}
+    for sparse hierarchical clustering. Should be greater than 1.}
   \item{niter}{The number of iterations to perform in the sparse
     hierarchical clustering algorithm.}
   \item{dissimilarity}{The type of dissimilarity measure to use. One of

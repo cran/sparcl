@@ -6,15 +6,16 @@
 Performs sparse hierarchical and sparse K-means clustering
 }
 \description{
-Implements the sparse clustering methods of Witten and Tibshirani (2009)
-"A framework for feature selection in clustering"
+Implements the sparse clustering methods of Witten and Tibshirani (2010)
+"A framework for feature selection in clustering", Journal
+Amer. Stat. Assocn. 105(490): 713-726.
 }
 \details{
 \tabular{ll}{
 Package: \tab sparcl\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2009-07-06\cr
+Version: \tab 1.0.2\cr
+Date: \tab 2011-12-06\cr
 License: \tab GPL >=2 \cr
 LazyLoad: \tab yes\cr
 }
@@ -28,7 +29,7 @@ chosen by KMeansSparseCluster.permute and HierarchicalSparseCluster.permute.
 Maintainer: dwitten at stanford dot edu 
 }
 \references{
-Witten and Tibshirani (2009) A framework for feature selection in clustering.
-}
-\examples{
+Witten and Tibshirani (2010) A framework for feature selection in
+clustering. Journal
+Amer. Stat. Assocn. 105(490): 713-726.
 }

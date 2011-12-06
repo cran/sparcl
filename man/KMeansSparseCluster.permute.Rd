@@ -6,19 +6,25 @@ The tuning parameter controls the L1 bound on w, the feature weights. A
 permutation approach is used to select the tuning parameter.
 }
 \usage{
-KMeansSparseCluster.permute(x, K = 2, nperms = 25, wbounds = NULL, silent = FALSE, nvals = 10)
+KMeansSparseCluster.permute(x, K=NULL, nperms = 25, wbounds = NULL,
+silent = FALSE, nvals = 10, centers=NULL)
 }
 \arguments{
   \item{x}{The nxp data matrix, n is the number of observations and p
     the number of features.}
-  \item{K}{The number of clusters desired - that is, the "K" in K-means clustering.}
+  \item{K}{The number of clusters desired - that is, the "K" in K-means
+    clustering. Must specify K or centers.}
   \item{nperms}{Number of permutations.}
   \item{wbounds}{The range of tuning parameters to consider. This is the
   L1 bound on w, the feature weights. If NULL, then a range of values
-  will be chosen automatically.}
+  will be chosen automatically. Should be greater than 1 if non-null.}
   \item{silent}{Print out progress?}
   \item{nvals}{If wbounds is NULL, then the number of candidate tuning
     parameter values to consider.}
+  \item{centers}{Optional argument. If you want to run the k-means
+    algorithm starting from a particular set of clusters, then you
+    can enter the Kxp matrix of cluster centers here. Default use
+    case involves taking centers=NULL and instead specifying K.} 
 }
 \value{ 
   \item{gaps}{The gap statistics obtained (one for each of the tuning
@@ -74,6 +80,13 @@ print(km.out)
 plot(km.out)
 # run sparse k-means for a range of tuning parameter values
 km.out <- KMeansSparseCluster(x,K=2,wbounds=2:7)
+print(km.out)
+plot(km.out)
+# Repeat, but this time start with a particular choice of cluster
+# centers.
+# This will do 4-means clustering starting with this particular choice
+# of cluster centers.
+km.perm.out <- KMeansSparseCluster.permute(x,wbounds=2:7, centers=x[1:4,])
 print(km.out)
 plot(km.out)
 }

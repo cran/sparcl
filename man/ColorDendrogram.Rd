@@ -28,8 +28,6 @@ ColorDendrogram(hc, y, main = "", branchlength = 0.7, labels = NULL, xlab = NULL
 \references{Witten and Tibshirani (2009) A framework for feature
   selection in clustering.}
 \author{Daniela M. Witten and Robert Tibshirani}
-\note{
-}
 \seealso{HierarchicalSparseCluster, HierarchicalSparseCluster.permute}
 \examples{
 # Generate 2-class data
