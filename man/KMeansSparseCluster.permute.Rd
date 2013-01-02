@@ -1,5 +1,7 @@
 \name{KMeansSparseCluster.permute}
 \alias{KMeansSparseCluster.permute}
+\alias{print.KMeansSparseCluster.permute}
+\alias{plot.KMeansSparseCluster.permute}
 \title{Choose tuning parameter for sparse k-means clustering}
 \description{
 The tuning parameter controls the L1 bound on w, the feature weights. A
@@ -8,6 +10,8 @@ permutation approach is used to select the tuning parameter.
 \usage{
 KMeansSparseCluster.permute(x, K=NULL, nperms = 25, wbounds = NULL,
 silent = FALSE, nvals = 10, centers=NULL)
+\method{print}{KMeansSparseCluster.permute}(x,...)
+\method{plot}{KMeansSparseCluster.permute}(x,...)
 }
 \arguments{
   \item{x}{The nxp data matrix, n is the number of observations and p
@@ -24,7 +28,8 @@ silent = FALSE, nvals = 10, centers=NULL)
   \item{centers}{Optional argument. If you want to run the k-means
     algorithm starting from a particular set of clusters, then you
     can enter the Kxp matrix of cluster centers here. Default use
-    case involves taking centers=NULL and instead specifying K.} 
+    case involves taking centers=NULL and instead specifying K.}
+  \item{\dots}{ not used. }  
 }
 \value{ 
   \item{gaps}{The gap statistics obtained (one for each of the tuning
@@ -66,12 +71,12 @@ silent = FALSE, nvals = 10, centers=NULL)
 \examples{
 # generate data
 set.seed(11)
-x <- matrix(rnorm(50*300),ncol=300)
-x[1:25,1:50] <- x[1:25,1:50]+1
+x <- matrix(rnorm(50*70),ncol=70)
+x[1:25,1:10] <- x[1:25,1:10]+1.5
 x <- scale(x, TRUE, TRUE)
 # choose tuning parameter
 km.perm <-
-KMeansSparseCluster.permute(x,K=2,wbounds=seq(3,9,len=15),nperms=5)
+KMeansSparseCluster.permute(x,K=2,wbounds=seq(2,5,len=8),nperms=3)
 print(km.perm)
 plot(km.perm)
 # run sparse k-means
@@ -86,7 +91,7 @@ plot(km.out)
 # centers.
 # This will do 4-means clustering starting with this particular choice
 # of cluster centers.
-km.perm.out <- KMeansSparseCluster.permute(x,wbounds=2:7, centers=x[1:4,])
+km.perm.out <- KMeansSparseCluster.permute(x,wbounds=2:6, centers=x[1:4,],nperms=3)
 print(km.out)
 plot(km.out)
 }

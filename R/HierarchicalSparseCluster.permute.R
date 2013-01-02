@@ -37,12 +37,12 @@ function(x,  nperms=10, wbounds=NULL, dissimilarity=c("squared.distance","absolu
   }
   gaps <- (log(tots)-apply(log(permtots),1,mean))
   out <- list(tots=tots, permtots=permtots, nnonzerows=nnonzerows, gaps=gaps, sdgaps=apply(log(permtots),1,sd), wbounds=wbounds, bestw=wbounds[which.max(gaps)], dists=out$dists)
-  class(out) <- "hclustsparseperm"
+  class(out) <- "HierarchicalSparseCluster.permute"
   cat(fill=TRUE)
   return(out)
 }
 
-print.hclustsparseperm <- function(x,...){
+print.HierarchicalSparseCluster.permute <- function(x,...){
   cat("Tuning parameter selection results for Sparse Hierarchical Clustering:", fill=TRUE)
   mat <- round(cbind(x$wbounds, x$nnonzerows, x$gaps, x$sdgaps),4)
   dimnames(mat) <- list(1:length(x$wbounds), c("Wbound", "# Non-Zero W's", "Gap Statistic", "Standard Deviation"))
@@ -50,7 +50,7 @@ print.hclustsparseperm <- function(x,...){
   cat("Tuning parameter that leads to largest Gap statistic: ", x$bestw, fill=TRUE)
 }
 
-plot.hclustsparseperm <- function(x,...){
+plot.HierarchicalSparseCluster.permute <- function(x,...){
   plot(x$nnonzerows, x$gaps, log="x", main="Gap Statistics", xlab="# Non-zero Wj's", ylab="")
   lines(x$nnonzerows, x$gaps)
 }

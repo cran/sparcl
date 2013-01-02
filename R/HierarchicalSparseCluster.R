@@ -48,12 +48,12 @@ function(x=NULL, dists=NULL, method=c("average", "complete", "single","centroid"
     output.cluster.files.fun(xorig,out,outputfile.prefix,genenames=genenames,genedesc=genedesc)
   }
   if(!silent) cat(fill=TRUE)
-  class(out) <- "hclustsparse"
+  class(out) <- "HierarchicalSparseCluster"
   return(out)
 }
 
 
-plot.hclustsparse <- function(x,...){
+plot.HierarchicalSparseCluster <- function(x,...){
   par(mfrow=c(1,2))
   plot(x$hc,xlab="",ylab="",sub="", main="Sparse Clustering", labels=rep("", nrow(x$u)))
   plot(x$ws, main=paste("Wbound is ", sep="", round(x$wbound,3)), xlab="Feature Index", ylab="Wj")
@@ -61,7 +61,7 @@ plot.hclustsparse <- function(x,...){
 
 
 
-print.hclustsparse <- function(x,...){
+print.HierarchicalSparseCluster <- function(x,...){
   cat("Wbound is ", x$wbound, ":", fill=TRUE)
   cat("Number of non-zero weights: ", sum(x$ws!=0), fill=TRUE)
   cat("Sum of weights: ", sum(x$ws), fill=TRUE)

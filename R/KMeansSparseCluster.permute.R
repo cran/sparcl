@@ -35,11 +35,11 @@ function(x, K=NULL,  nperms=25, wbounds=NULL,silent=FALSE, nvals=10, centers=NUL
   gaps <- (log(tots)-apply(log(permtots),1,mean))
   out <- list(tots=tots, permtots=permtots, nnonzerows=nnonzerows, gaps=gaps, sdgaps=apply(log(permtots),1,sd), wbounds=wbounds, bestw=wbounds[which.max(gaps)])
   if(!silent) cat(fill=TRUE)
-  class(out) <- "kmeanssparseperm"
+  class(out) <- "KMeansSparseCluster.permute"
   return(out)
 }
 
-print.kmeanssparseperm <- function(x,...){
+print.KMeansSparseCluster.permute <- function(x,...){
   cat("Tuning parameter selection results for Sparse K-means Clustering:", fill=TRUE)
   mat <- round(cbind(x$wbounds, x$nnonzerows, x$gaps, x$sdgaps),4)
   dimnames(mat) <- list(1:length(x$wbounds), c("Wbound", "# Non-Zero W's", "Gap Statistic", "Standard Deviation"))
@@ -47,7 +47,7 @@ print.kmeanssparseperm <- function(x,...){
   cat("Tuning parameter that leads to largest Gap statistic: ", x$bestw, fill=TRUE)
 }
 
-plot.kmeanssparseperm <- function(x,...){
+plot.KMeansSparseCluster.permute <- function(x,...){
   plot(x$nnonzerows, x$gaps, log="x", main="Gap Statistics", xlab="# Non-zero Wj's", ylab="")
   lines(x$nnonzerows, x$gaps)
 }

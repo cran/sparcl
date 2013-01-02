@@ -1,5 +1,7 @@
 \name{HierarchicalSparseCluster}
 \alias{HierarchicalSparseCluster}
+\alias{print.HierarchicalSparseCluster}
+\alias{plot.HierarchicalSparseCluster}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Hierarchical sparse clustering}
 \description{
@@ -38,6 +40,8 @@ wbound=NULL,niter=15,dissimilarity=c("squared.distance","absolute.value"), uorth
 cluster.features=FALSE,method.features=c("average", "complete",
 "single","centroid"),output.cluster.files=FALSE,
 outputfile.prefix="output",genenames=NULL,genedesc=NULL,standardize.arrays=FALSE)
+\method{print}{HierarchicalSparseCluster}(x,...)
+\method{plot}{HierarchicalSparseCluster}(x,...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -68,6 +72,7 @@ outputfile.prefix="output",genenames=NULL,genedesc=NULL,standardize.arrays=FALSE
   \item{outputfile.prefix}{Not for use.}
   \item{genenames}{Not for use.}
   \item{genedesc}{Not for use.}
+  \item{\dots}{ not used. }
 }
 \value{
   \item{hc}{The output of a call to "hclust", giving the results of
@@ -86,11 +91,11 @@ outputfile.prefix="output",genenames=NULL,genedesc=NULL,standardize.arrays=FALSE
 \examples{
   # Generate 2-class data
   set.seed(1)
-  x <- matrix(rnorm(100*200),ncol=200)
+  x <- matrix(rnorm(100*50),ncol=50)
   y <- c(rep(1,50),rep(2,50))
   x[y==1,1:25] <- x[y==1,1:25]+2
   # Do tuning parameter selection for sparse hierarchical clustering
-  perm.out <- HierarchicalSparseCluster.permute(x, wbounds=c(1.5,2:9),
+  perm.out <- HierarchicalSparseCluster.permute(x, wbounds=c(1.5,2:6),
 nperms=5)
   print(perm.out)
   plot(perm.out)
@@ -112,7 +117,7 @@ wbound=perm.out$bestw, method="complete")
   sparsehc.comp <- HierarchicalSparseCluster(x,wbound=perm.out$bestw,
      method="complete",uorth=sparsehc$u)
   # Redo the analysis, but this time use "absolute value" dissimilarity:
-  perm.out <- HierarchicalSparseCluster.permute(x, wbounds=c(1.5,2:9),
+  perm.out <- HierarchicalSparseCluster.permute(x, wbounds=c(1.5,2:6),
     nperms=5, dissimilarity="absolute.value")
   print(perm.out)
   plot(perm.out)

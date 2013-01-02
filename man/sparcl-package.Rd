@@ -14,9 +14,9 @@ Amer. Stat. Assocn. 105(490): 713-726.
 \tabular{ll}{
 Package: \tab sparcl\cr
 Type: \tab Package\cr
-Version: \tab 1.0.2\cr
-Date: \tab 2011-12-06\cr
-License: \tab GPL >=2 \cr
+Version: \tab 1.0.3\cr
+Date: \tab 2013-1-02\cr
+License: \tab GPL-2 \cr
 LazyLoad: \tab yes\cr
 }
 The main functions are KMeansSparseCluster and
@@ -26,7 +26,7 @@ chosen by KMeansSparseCluster.permute and HierarchicalSparseCluster.permute.
 \author{
   Daniela M. Witten and Robert Tibshirani
   
-Maintainer: dwitten at stanford dot edu 
+Maintainer: Daniela Witten <dwitten@u.washington.edu>
 }
 \references{
 Witten and Tibshirani (2010) A framework for feature selection in

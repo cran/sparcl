@@ -1,5 +1,7 @@
 \name{KMeansSparseCluster}
 \alias{KMeansSparseCluster}
+\alias{print.KMeansSparseCluster}
+\alias{plot.KMeansSparseCluster}
 \title{Performs sparse k-means clustering}
 \description{
 This function performs sparse k-means clustering. You must specify a number of clusters K and an L1 bound on w, the feature weights.
@@ -21,6 +23,8 @@ The non-zero elements of w indicate features that are used in the sparse cluster
 \usage{
 KMeansSparseCluster(x, K=NULL, wbounds = NULL, nstart = 20, silent =
 FALSE, maxiter=6, centers=NULL)
+\method{plot}{KMeansSparseCluster}(x,...)
+\method{print}{KMeansSparseCluster}(x,...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -38,6 +42,7 @@ FALSE, maxiter=6, centers=NULL)
     algorithm starting from a particular set of clusters, then you can
     enter the Kxp matrix of cluster centers here. Default use case
     involves taking centers=NULL and instead specifying K.}
+  \item{\dots}{ not used. }
 }
 \value{
   If wbounds is a vector, then a list with elements as follows (one per
@@ -53,11 +58,11 @@ FALSE, maxiter=6, centers=NULL)
 \examples{
 # generate data
 set.seed(11)
-x <- matrix(rnorm(50*300),ncol=300)
-x[1:25,1:50] <- x[1:25,1:50]+1
+x <- matrix(rnorm(50*70),ncol=70)
+x[1:25,1:20] <- x[1:25,1:20]+1
 x <- scale(x, TRUE, TRUE)
 # choose tuning parameter
-km.perm <- KMeansSparseCluster.permute(x,K=2,wbounds=seq(3,9,len=15),nperms=5)
+km.perm <- KMeansSparseCluster.permute(x,K=2,wbounds=seq(3,7,len=15),nperms=5)
 print(km.perm)
 plot(km.perm)
 # run sparse k-means
@@ -65,7 +70,7 @@ km.out <- KMeansSparseCluster(x,K=2,wbounds=km.perm$bestw)
 print(km.out)
 plot(km.out)
 # run sparse k-means for a range of tuning parameter values
-km.out <- KMeansSparseCluster(x,K=2,wbounds=2:7)
+km.out <- KMeansSparseCluster(x,K=2,wbounds=seq(1.3,4,len=8))
 print(km.out)
 plot(km.out)
 # Run sparse k-means starting from a particular set of cluster centers

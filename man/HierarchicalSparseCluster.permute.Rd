@@ -1,12 +1,17 @@
 \name{HierarchicalSparseCluster.permute}
 \alias{HierarchicalSparseCluster.permute}
+\alias{print.HierarchicalSparseCluster.permute}
+\alias{plot.HierarchicalSparseCluster.permute}
 \title{Choose tuning parameter for sparse hierarchical clustering}
 \description{
  The tuning parameter controls the L1 bound on w, the feature weights. A permutation approach is used to select the tuning parameter.
 }
 \usage{
 HierarchicalSparseCluster.permute(x, nperms = 10, wbounds = NULL,
-dissimilarity=c("squared.distance", "absolute.value"),standardize.arrays=FALSE)
+dissimilarity=c("squared.distance",
+"absolute.value"),standardize.arrays=FALSE)
+\method{plot}{HierarchicalSparseCluster.permute}(x,...) 
+\method{print}{HierarchicalSparseCluster.permute}(x,...)
 }
 \arguments{
   \item{x}{A nxp data matrix, with n observations and p feaures.}
@@ -19,6 +24,7 @@ dissimilarity=c("squared.distance", "absolute.value"),standardize.arrays=FALSE)
     squared.distance.}
   \item{standardize.arrays}{Should the arrays first be standardized?
     Default is FALSE.}
+  \item{\dots}{ not used. }
 }
 \details{
   Let $d_ii'j$ denote the dissimilarity between observations i and i'
@@ -65,11 +71,11 @@ dissimilarity=c("squared.distance", "absolute.value"),standardize.arrays=FALSE)
 \examples{
   # Generate 2-class data
   set.seed(1)
-  x <- matrix(rnorm(100*200),ncol=200)
+  x <- matrix(rnorm(100*50),ncol=50)
   y <- c(rep(1,50),rep(2,50))
   x[y==1,1:25] <- x[y==1,1:25]+2
   # Do tuning parameter selection for sparse hierarchical clustering
-  perm.out <- HierarchicalSparseCluster.permute(x, wbounds=c(1.5,2:9),
+  perm.out <- HierarchicalSparseCluster.permute(x, wbounds=c(1.5,2:6),
 nperms=5)
   print(perm.out)
   plot(perm.out)

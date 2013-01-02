@@ -37,26 +37,33 @@ function(x, K=NULL, wbounds=NULL, nstart=20, silent=FALSE, maxiter=6, centers=NU
     out[[i]] <- list(ws=ws, Cs=Cs, wcss=GetWCSS(x, Cs, ws), crit=store.bcss.ws, wbound=wbounds[i])
   }
   if(!silent) cat(fill=TRUE)
-  if(length(wbounds)==1){
-    out <- out[[1]]
-    class(out) <- "kmeanssparse"
-    return(out)
-  }
-  class(out) <- "multikmeanssparse"
+#  if(length(wbounds)==1){
+#    out <- out[[1]]
+#    class(out) <- "kmeanssparse"
+#    return(out)
+#  }
+#  class(out) <- "multikmeanssparse"
+#  return(out)
+  class(out) <- "KMeansSparseCluster"
   return(out)
 }
 
-plot.multikmeanssparse <- function(x,...){
-  N <- length(x)
-  par(mfrow=c(ceiling(N/2),2))
-  for(i in 1:N){
-    plot(x[[i]]$ws, main=paste("Wbound is ", sep="", round(x[[i]]$wbound,3)), xlab="Feature Index", ylab="Wj")
+plot.KMeansSparseCluster <- function(x,...){
+  if(length(x)>1){
+    N <- length(x)
+    par(mfrow=c(ceiling(N/2),2))
+    for(i in 1:N){
+      plot(x[[i]]$ws, main=paste("Wbound is ", sep="", round(x[[i]]$wbound,3)), xlab="Feature Index", ylab="Wj")
+    }
+  } else {
+    x <- x[[1]]    
+    plot(x$ws, main=paste("Wbound is ", sep="", round(x$wbound,3)), xlab="Feature Index", ylab="Wj")
   }
 }
 
-plot.kmeanssparse <- function(x,...){
-  plot(x$ws, main=paste("Wbound is ", sep="", round(x$wbound,3)), xlab="Feature Index", ylab="Wj")
-}
+#plot.kmeanssparse <- function(x,...){
+#
+#}
 
 PrintIt <- function(x){
   cat("Number of non-zero weights: ", sum(x$ws!=0), fill=TRUE)
@@ -70,9 +77,10 @@ print.kmeanssparse <- function(x,...){
   PrintIt(x)
 }
 
-print.multikmeanssparse <- function(x,...){
+print.KMeansSparseCluster <- function(x,...){
   for(i in 1:length(x)){
     cat("Wbound is ", x[[i]]$wbound, ":", fill=TRUE)
     PrintIt(x[[i]])
   }  
 }
+ 
