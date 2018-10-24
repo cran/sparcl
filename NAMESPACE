@@ -1,1 +1,17 @@
+
+importFrom("graphics", "lines", "par", "plot", "segments")
+  importFrom("stats", "as.dist", "cor", "dist", "hclust", "kmeans",
+             "rnorm", "sd", "var")
+  importFrom("utils", "read.table", "write.table")
+
+S3method("print","HierarchicalSparseCluster")
+S3method("plot","HierarchicalSparseCluster")
+S3method("plot","HierarchicalSparseCluster.permute")
+S3method("print","HierarchicalSparseCluster.permute")
+S3method("print","KMeansSparseCluster")
+S3method("plot","KMeansSparseCluster")
+S3method("print","KMeansSparseCluster.permute")
+S3method("plot","KMeansSparseCluster.permute")
+
+
 export(ColorDendrogram,KMeansSparseCluster,KMeansSparseCluster.permute,HierarchicalSparseCluster,HierarchicalSparseCluster.permute,HierarchicalSparseCluster.wrapper,print.KMeansSparseCluster,plot.KMeansSparseCluster,print.KMeansSparseCluster.permute,plot.KMeansSparseCluster.permute,print.HierarchicalSparseCluster,plot.HierarchicalSparseCluster,print.HierarchicalSparseCluster.permute,plot.HierarchicalSparseCluster.permute)

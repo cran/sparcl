@@ -1,5 +1,5 @@
-2ee7b6ade34cd3c0a8d45b3d587f4698 *DESCRIPTION
-b78338ade2d3b4a73963b702123299d6 *NAMESPACE
+a53f210ced695be36cfc2677517513f5 *DESCRIPTION
+b0f47e2070e0f02dbd8d3636b28b570f *NAMESPACE
 80c5bdb7b029da2ac6f4931c5ba5bd52 *R/ColorDendrogram.R
 91b629fc7955db736d59e300a3799446 *R/HierarchicalSparseCluster.R
 f474888702db313814d0a2f184538d30 *R/HierarchicalSparseCluster.permute.R
@@ -10,10 +10,10 @@ e5b664f67e529dad1ddac3a8ded45f04 *R/KMeansSparseCluster.permute.R
 514446377b29c4088bdf8383adf1dfdb *R/distfun.R
 ea4ea1684f7d283d2175fa2b56daa9ff *R/multfun.R
 42b9a1d37bcbcad199e4219ca1908b84 *R/zzz.R
-af0735eac980a5c06e443e95fa9d3f66 *man/ColorDendrogram.Rd
-56606b4fa766a83114a027ce4ee0f9cc *man/HierarchicalSparseCluster.Rd
-16bff49b7e122a0ea24ead76c8041b51 *man/HierarchicalSparseCluster.permute.Rd
-99c760a6bd611a3a5594fccd4fd4488e *man/HierarchicalSparseCluster.wrapper.Rd
+c21cf431dfac386b976a611de8c5f4c8 *man/ColorDendrogram.Rd
+d5531a2c09d604539ec693a411fb5bdf *man/HierarchicalSparseCluster.Rd
+8d4f66c7f1f6e54e65890e458dc8ab8d *man/HierarchicalSparseCluster.permute.Rd
+926470ce540d7dd6b442b3f54803de3d *man/HierarchicalSparseCluster.wrapper.Rd
 de1fc0a9f86fd715cf969fea642fef6a *man/KMeansSparseCluster.Rd
 412dd1920c282aa84f6e73d6335f6209 *man/KMeansSparseCluster.permute.Rd
 5331a3cd427d30b828d8790038636b24 *man/sparcl-package.Rd

@@ -1,9 +1,9 @@
 Package: sparcl
 Type: Package
-Title: Perform sparse hierarchical clustering and sparse k-means
-        clustering
-Version: 1.0.3
-Date: 2013-1-02
+Title: Perform Sparse Hierarchical Clustering and Sparse K-Means
+        Clustering
+Version: 1.0.4
+Date: 2018-10-22
 Author: Daniela M. Witten and Robert Tibshirani
 Maintainer: Daniela Witten <dwitten@u.washington.edu>
 Description: Implements the sparse clustering methods of Witten and
@@ -12,6 +12,7 @@ Description: Implements the sparse clustering methods of Witten and
         Association 105(490): 713-726.
 License: GPL-2
 LazyLoad: yes
-Packaged: 2013-01-03 21:53:45 UTC; dwitten
+Packaged: 2018-10-22 22:19:08 UTC; robtibshirani
 Repository: CRAN
-Date/Publication: 2013-01-04 08:56:50
+Date/Publication: 2018-10-24 13:50:03 UTC
+NeedsCompilation: yes

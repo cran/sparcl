@@ -35,9 +35,11 @@ matrix for hierarchical clustering.
   by the R user.
 }
 \usage{
-HierarchicalSparseCluster(x=NULL, dists=NULL,method=c("average","complete", "single","centroid"),
-wbound=NULL,niter=15,dissimilarity=c("squared.distance","absolute.value"), uorth=NULL,silent=FALSE,
-cluster.features=FALSE,method.features=c("average", "complete",
+HierarchicalSparseCluster(x=NULL, dists=NULL,
+method=c("average","complete", "single","centroid"),
+wbound=NULL,niter=15,dissimilarity=c("squared.distance","absolute.value"),
+ uorth=NULL,
+silent=FALSE,cluster.features=FALSE,method.features=c("average", "complete",
 "single","centroid"),output.cluster.files=FALSE,
 outputfile.prefix="output",genenames=NULL,genedesc=NULL,standardize.arrays=FALSE)
 \method{print}{HierarchicalSparseCluster}(x,...)
@@ -49,7 +51,8 @@ outputfile.prefix="output",genenames=NULL,genedesc=NULL,standardize.arrays=FALSE
     number of features. If NULL, then specify dists instead.}
   \item{dists}{For advanced users, can be entered instead of x. If
     HierarchicalSparseCluster has already been run on this data, then
-    the dists value of the previous output can be entered here. Under normal circumstances, leave this argument NULL and
+    the dists value of the previous output can be entered here. 
+    Under normal circumstances, leave this argument NULL and
     pass in x instead.}
   \item{method}{The type of linkage to use in the hierarchical
     clustering - "single", "complete", "centroid", or "average".}
@@ -102,7 +105,8 @@ nperms=5)
   # Perform sparse hierarchical clustering
   sparsehc <- HierarchicalSparseCluster(dists=perm.out$dists,
 wbound=perm.out$bestw, method="complete")
-  # faster than   sparsehc <- HierarchicalSparseCluster(x=x,wbound=perm.out$bestw, method="complete")
+  # faster than   sparsehc <- HierarchicalSparseCluster(x=x,wbound=perm.out$bestw, 
+#  method="complete")
   par(mfrow=c(1,2))
   plot(sparsehc)
   plot(sparsehc$hc, labels=rep("", length(y)))
@@ -122,7 +126,9 @@ wbound=perm.out$bestw, method="complete")
   print(perm.out)
   plot(perm.out)
   # Perform sparse hierarchical clustering
-  sparsehc <- HierarchicalSparseCluster(dists=perm.out$dists, wbound=perm.out$bestw, method="complete", dissimilarity="absolute.value")
+  sparsehc <- HierarchicalSparseCluster(dists=perm.out$dists, wbound=perm.out$bestw, 
+method="complete",
+ dissimilarity="absolute.value")
   par(mfrow=c(1,2))
   plot(sparsehc)
 }

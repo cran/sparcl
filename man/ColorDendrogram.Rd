@@ -7,7 +7,8 @@ observation. A colored dendrogram will result, with the leaf colors indicating
 the classes.
 }
 \usage{
-ColorDendrogram(hc, y, main = "", branchlength = 0.7, labels = NULL, xlab = NULL, sub = NULL, ylab = "", cex.main = NULL)
+ColorDendrogram(hc, y, main = "", branchlength = 0.7, labels = NULL, xlab = NULL, 
+sub="NULL",ylab = "", cex.main = NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

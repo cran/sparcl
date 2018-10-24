@@ -9,10 +9,12 @@ optimal tuning parameter value using HierarchicalSparseCluster.permute
 if not specified.
 }
 \usage{
-HierarchicalSparseCluster.wrapper(file,  method=c("average", "complete", "single", "centroid"),
+HierarchicalSparseCluster.wrapper(file,  method=c("average", "complete", "single",
+ "centroid"),
 wbound=NULL, silent=FALSE, cluster.features=FALSE,
 method.features=c("average", "complete",
-"single","centroid"),output.cluster.files=TRUE,outputfile.prefix=NULL,maxnumgenes=5000,standardize.arrays=TRUE)
+"single","centroid"),output.cluster.files=TRUE,outputfile.prefix=NULL,maxnumgenes=5000,
+standardize.arrays=TRUE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

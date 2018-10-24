@@ -80,7 +80,8 @@ nperms=5)
   print(perm.out)
   plot(perm.out)
   # Perform sparse hierarchical clustering
-  sparsehc <- HierarchicalSparseCluster(dists=perm.out$dists, wbound=perm.out$bestw, method="complete")
+  sparsehc <- HierarchicalSparseCluster(dists=perm.out$dists, wbound=perm.out$bestw, 
+method="complete")
   par(mfrow=c(1,2))
   plot(sparsehc)
   plot(sparsehc$hc, labels=rep("", length(y)))
